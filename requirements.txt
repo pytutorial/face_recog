@@ -6,3 +6,4 @@ sklearn
 scikit-image
 opencv-python
 easydict
+mxnet
