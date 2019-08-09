@@ -1,0 +1,8 @@
+numpy==1.16.2
+tensorflow
+keras
+pillow
+sklearn
+scikit-image
+opencv-python
+easydict
