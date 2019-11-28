@@ -22,14 +22,14 @@ model = face_model.FaceModel(args)
 img = cv2.imread(args.img1_file)
 img = model.get_input(img)
 f1 = model.get_feature(img)
-print(f1[0:10])
+#print(f1[0:10])
 gender, age = model.get_ga(img)
-print(gender)
-print(age)
+#print(gender)
+#print(age)
 
 img = cv2.imread(args.img2_file)
 img = model.get_input(img)
-print(img.shape)
+#print(img.shape)
 
 t = time()
 counter = 1
@@ -37,9 +37,9 @@ counter = 1
 for _ in range(counter):
   f2 = model.get_feature(img)
 
-print((time()-t)/counter)
+#print((time()-t)/counter)
 
 dist = np.sum(np.square(f1-f2))
-print(dist)
+print('Euclide diatance:', dist)
 sim = np.dot(f1, f2.T)
-print(sim)
+print('Cosine simarlity:', sim)
