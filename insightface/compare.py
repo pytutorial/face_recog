@@ -4,6 +4,7 @@ import cv2
 import sys
 import numpy as np
 from time import time
+import os
 
 parser = argparse.ArgumentParser(description='face model test')
 # general
@@ -17,6 +18,15 @@ parser.add_argument('--threshold', default=1.24, type=float, help='ver dist thre
 parser.add_argument('--img1_file', type=str, help='Image 1')    
 parser.add_argument('--img2_file', type=str, help='Image 2')
 args = parser.parse_args()
+
+model_path,_ =  os.path.split(args.model)
+if not os.path.exists(model_path):
+    print('Please run "download_model.py" first')
+    exit()
+
+if args.img1_file == None or args.img2_file == None:
+    print('Run : python compare.py --img1_file <img1_file> --img2_file <img2_file>')
+    exit()
 
 model = face_model.FaceModel(args)
 img = cv2.imread(args.img1_file)
